@@ -46,10 +46,18 @@ func typeHandler(cmd *cobra.Command, args []string) error {
 		name := fs[0]
 		var datatype string
 		acceptedTypes := map[string]bool{
-			"string": true,
-			"bool":   true,
-			"int":    true,
-			"float":  true,
+			"string":           true,
+			"[]string":         true,
+			"bool":             true,
+			"[]bool":           true,
+			"int":              true,
+			"[]int":            true,
+			"float":            true,
+			"[]float":          true,
+			"sdk.AccAddress":   true,
+			"[]sdk.AccAddress": true,
+			"sdk.Coins":        true,
+			"[]sdk.Coins":      true,
 		}
 		if len(fs) == 2 && acceptedTypes[fs[1]] {
 			datatype = fs[1]
